@@ -14,9 +14,9 @@ class MainApplication(tk.Frame):
         self.tab_control = ttk.Notebook(self.parent)
         pandoc = shutil.which("pandoc")
         if pandoc is not None:
-            self.manuscripttab = manuscriptTab.ManuscriptTab(self.tab_control)
-        self.mediatab = mediaTab.MediaTab(self.tab_control)
-        self.csvtab = csvTab.CSVTab(self.tab_control)
+            self.manuscripttab = manuscript_tab.ManuscriptTab(self.tab_control)
+        self.mediatab = media_tab.MediaTab(self.tab_control)
+        self.csvtab = csv_tab.CSVTab(self.tab_control)
         # self.webarchivetab = wat.WebArchiveTab(self.tab_control)
         self.tab_control.pack(expand=1, fill="both")
 

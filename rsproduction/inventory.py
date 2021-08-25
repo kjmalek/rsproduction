@@ -4,7 +4,7 @@ import csv
 import platform
 
 from . import processing
-
+from . import saf_builder
 
 def submitInventory(project_id, series_num, sub_dir, out_dir, process_opt):
     sourceFolders = []
@@ -52,9 +52,9 @@ def submitInventory(project_id, series_num, sub_dir, out_dir, process_opt):
     if process_opt == 1:
         pass
     elif process_opt == 2:
-        fileProcessing.fileConversions(sub_dir)
+        processing.fileConversions(sub_dir)
     elif process_opt == 3:
-        fileProcessing.fileOptimizations(sub_dir)
+        processing.fileOptimizations(sub_dir)
     
     for file in files:
         identifier = file['dcterms.identifier']
@@ -104,9 +104,9 @@ def updateInventory(csvIn, sub_dir, out_dir, process_opt):
         if process_opt == 1:
             pass
         elif process_opt == 2:
-            fileProcessing.fileConversions(sub_dir)
+            processing.fileConversions(sub_dir)
         elif process_opt == 3:
-            fileProcessing.fileOptimizations(sub_dir)
+            processing.fileOptimizations(sub_dir)
         
         for row in reader:
             identifier = row['dcterms.identifier']
@@ -135,4 +135,4 @@ def updateInventory(csvIn, sub_dir, out_dir, process_opt):
     print(f"The new files have been inventoried in {SAFout}.")
     arc_dir = f'{out_dir}/archives'
     inventory = SAFout
-    SimpleArchiveBuilder.run(out_dir, sub_dir, arc_dir, inventory)
+    saf_builder.run(out_dir, sub_dir, arc_dir, inventory)

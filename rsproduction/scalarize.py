@@ -134,9 +134,9 @@ def api_media(man_file, out_dir, isbn, media_dir, process_opt, handle, email, pa
         if process_opt == 1:
             pass
         elif process_opt == 2:
-            fileProcessing.fileConversions(sub_dir)
+            processing.fileConversions(sub_dir)
         elif process_opt == 3:
-            fileProcessing.fileOptimizations(sub_dir)
+            processing.fileOptimizations(sub_dir)
 
     for item in media:
         if 'dcterms.identifier' in item:
@@ -187,7 +187,7 @@ def api_media(man_file, out_dir, isbn, media_dir, process_opt, handle, email, pa
 
     baseURL = 'https://media.ravenspacepublishing.org'
     jsonFile = f"./{out_dir}/temp/metadataNewFiles.json"
-    createItemMetadataFromCSV.convert(inventory, jsonFile)
+    csv2metadata.convert(inventory, jsonFile)
 
     fileList = {}
     for root, dirs, files in os.walk(f'./{out_dir}/temp/media', topdown=True):
@@ -389,9 +389,9 @@ def saf_media(man_file, out_dir, isbn, media_dir, process_opt):
         if process_opt == 1:
             pass
         elif process_opt == 2:
-            fileProcessing.fileConversions(sub_dir)
+            processing.fileConversions(sub_dir)
         elif process_opt == 3:
-            fileProcessing.fileOptimizations(sub_dir)
+            processing.fileOptimizations(sub_dir)
 
     for item in media:
         if 'dcterms.identifier' in item:
@@ -442,4 +442,4 @@ def saf_media(man_file, out_dir, isbn, media_dir, process_opt):
 
     arc_dir = f'./{out_dir}/temp/archives'
     sub_dir = f'./{out_dir}/temp/media'
-    SimpleArchiveBuilder.run(out_dir, sub_dir, arc_dir, inventory)
+    saf_builder.run(out_dir, sub_dir, arc_dir, inventory)

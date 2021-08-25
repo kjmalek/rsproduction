@@ -125,10 +125,10 @@ class CSVTab(tk.Frame):
         self.add_ex.set(add_ex_select)
 
     def add_csv_process(self):
-        """Get values inputted into form and run those values through the mediaUpdater.newMedia function."""
+        """Get values inputted into form and run those values through the update.newMedia function."""
         dcsv = self.add_csv_entry.get()
         scsv = self.add_ex.get()
-        mediaUpdater.newMedia(dcsv, scsv)
+        update.newMedia(dcsv, scsv)
         tk.filedialog.askopenfilename(initialfile=scsv)
 
     def ds_final_select(self):
@@ -165,15 +165,15 @@ class CSVTab(tk.Frame):
         self.pages_ex_entry.insert(0, pages_ex_select)
 
     def up_csv_process(self):
-        """Get values inputted into form and run those values through mediaUpdater.updateMedia,
-        mediaUpdater.inventoryUpdates, and mediaUpdater.updatePages."""
+        """Get values inputted into form and run those values through update.updateMedia,
+        update.inventoryUpdates, and update.updatePages."""
         ds_final = self.ds_final_entry.get()
         scalar_media = self.scalar_media_entry.get()
         scalar_pages = self.scalar_pages_entry.get()
         media_ex = self.media_ex_entry.get()
         pages_ex = self.pages_ex_entry.get()
-        mediaUpdater.updateMedia(ds_final, scalar_media, media_ex)
-        mediaUpdater.inventoryUpdates(scalar_media, media_ex)
-        mediaUpdater.updatePages(scalar_pages, pages_ex)
+        update.updateMedia(ds_final, scalar_media, media_ex)
+        update.inventoryUpdates(scalar_media, media_ex)
+        update.updatePages(scalar_pages, pages_ex)
         tk.filedialog.askopenfilename(initialfile=media_ex)
         tk.filedialog.askopenfilename(initialfile=pages_ex)

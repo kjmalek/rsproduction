@@ -165,7 +165,7 @@ class MediaTab(tk.Frame):
             csv_inv = inventory.submitInventory(project_id, series_num, sub_dir, out_dir, process)
             if ing_method == 1:
                 arc_dir = f'{out_dir}/temp/archives'
-                SimpleArchiveBuilder.run(out_dir, sub_dir, arc_dir, csv_inv)
+                saf_builder.run(out_dir, sub_dir, arc_dir, csv_inv)
                 self.status.set("Done!")
                 tk.filedialog.askopenfile(mode='r', initialdir=out_dir)
             elif ing_method == 2:

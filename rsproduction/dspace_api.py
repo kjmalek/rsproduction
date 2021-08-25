@@ -11,7 +11,7 @@ from . import csv2metadata
 def ingest(out_dir, csv_inv, handle, email, password):
     baseURL = 'https://media.ravenspacepublishing.org'
     jsonFile = f"{out_dir}/temp/metadataNewFiles.json"
-    createItemMetadataFromCSV.convert(csv_inv, jsonFile)
+    csv2metadata.convert(csv_inv, jsonFile)
 
     fileList = {}
     for root, dirs, files in os.walk(f'{out_dir}/temp/media', topdown=True):
