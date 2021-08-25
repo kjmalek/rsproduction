@@ -3,9 +3,9 @@ import tkinter.ttk as ttk
 import shutil
 import platform
 
-from ravenspace_production_tool import inventory
-from ravenspace_production_tool import saf_builder
-from ravenspace_production_tool import dspace_api
+from . import inventory
+from . import saf_builder
+from . import dspace_api
 
 
 class MediaTab(tk.Frame):
